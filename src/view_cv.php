@@ -128,11 +128,13 @@ require_once ('DiffDate.php');
                     </div>
                 </div>
                 <div class="interests">
-                    <h2>Interests</h2>
-                    <hr>
-                    <?php foreach ($interests as $interest): ?>
-                        <span><?php echo $interest; ?></span>
-                    <?php endforeach; ?>
+                    <?php if ($interests): ?>
+                        <h2>Interests</h2>
+                        <hr>
+                        <?php foreach ($interests as $interest): ?>
+                            <span><?php echo $interest; ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

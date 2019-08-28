@@ -107,7 +107,7 @@
                             <label for="skills[<?= $i ?>][skill]">Skill: </label>
                             <input type="text" name="skills[<?= $i ?>][skill]" value="Skill <?= $i ?>">
                             <label for="skills[<?= $i ?>][profi]">Value from 0 to 100</label>
-                            <input type="number" name="skills[<?= $i ?>][profi]" value="<?= (80 + 2*$i) ?>"> <br>
+                            <input type="number" name="skills[<?= $i ?>][profi]" min="0" max="100" value="<?= (80 + 2*$i) ?>"> <br>
                         <?php endfor; ?>
                     </fieldset>
                     <fieldset>
