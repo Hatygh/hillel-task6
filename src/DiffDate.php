@@ -80,3 +80,26 @@ function period($start_date, $end_date)
     };
     return $result;
 };
+
+function geocode ($address) {
+    $url = "https://nominatim.openstreetmap.org/search?q=" . $address['city'] . ",%20" . $address['country'] . "&format=json&limit=1";
+
+    // Create a stream
+    $opts = array('http'=>array('header'=>"User-Agent: StevesCleverAddressScript 3.7.6\r\n"));
+    $context = stream_context_create($opts);
+
+    // Open the file using the HTTP headers set above
+    $response_json = file_get_contents($url, false, $context);
+
+    $response = json_decode($response_json, true);
+
+    $latitude = $response[0]['lat'];
+    $longitude = $response[0]['lon'];
+
+    $result = [
+        'latitude' => $latitude,
+        'longitude' => $longitude,
+    ];
+
+    return $result;
+};

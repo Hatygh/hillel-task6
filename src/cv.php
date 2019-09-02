@@ -1,5 +1,7 @@
 <?php
 
+require_once 'DiffDate.php';
+
 $icons = [
     'email' => '<i class="fas fa-envelope-square"></i>',
     'skype' => '<i class="fab fa-skype"></i>',
@@ -18,7 +20,9 @@ if (!empty($_POST)) {
     $contacts = $_POST['contacts'];
 
     $address = $_POST['address'];
-    // @todo добыть координаты
+    $coordinates = geocode($address);
+    $address['latitude'] = $coordinates['latitude'];
+    $address['longitude'] = $coordinates['longitude'];
 
     $experiences = $_POST['experiences'];
     foreach ($experiences as &$experience) {
@@ -57,12 +61,3 @@ else {
 }
 
 
-//
-//$interests = [
-//    'Economics',
-//    'Psychology',
-//    'Mixology',
-//    'Chess',
-    //    'Serfing',
-//    'Marketing',
-//];
