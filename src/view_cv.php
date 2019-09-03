@@ -65,6 +65,7 @@ require_once ('DiffDate.php');
                     <h2><?php echo $experience['position']; ?></h2>
                     <p><?php echo $experience['place']; ?></p>
                     <p><?php echo period($experience['start_date'], $experience['end_date']); ?></p>
+                    <p> Это были незабываемые <?php echo diffDate($experience['start_date'], $experience['end_date']); ?></p>
                     <p><?php echo $experience['address']['city'] . ', ' . $experience['address']['country']; ?></p>
                     <div class="tasks">
                         <p>Tasks:</p>
@@ -104,6 +105,7 @@ require_once ('DiffDate.php');
                     <hr>
                     <?php foreach ($sertificates as $sertificate): ?>
                         <p><?php echo $sertificate['title'] . ' (' .  period($sertificate['start_date'], $sertificate['end_date']) . ')'; ?></p>
+                        <p>На протяжении долгих <?php echo diffDate($sertificate['start_date'], $sertificate['end_date']); ?></p>
                         <p><?php echo $sertificate['comment']; ?></p>
                         <br>
                     <?php endforeach; ?>
